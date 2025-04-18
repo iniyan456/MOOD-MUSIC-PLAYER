@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Music Player 🎶</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #8e2de2, #4a00e0);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    .mood-buttons button {
+      font-size: 40px;
+      margin: 10px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: #ffffff20;
+      transition: transform 0.2s ease;
+    }
+
+    .mood-buttons button:hover {
+      transform: scale(1.2);
+      background-color: #ffffff40;
+    }
+
+    #nowPlaying {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mood Music Player 🎵</h1>
+    <p>Select your mood:</p>
+    <div class="mood-buttons">
+      <button onclick="playMusic('happy')">😊</button>
+      <button onclick="playMusic('sad')">😢</button>
+      <button onclick="playMusic('angry')">😡</button>
+      <button onclick="playMusic('relaxed')">😴</button>
+      <button onclick="playMusic('energetic')">💪</button>
+    </div>
+    <p id="nowPlaying">No song playing</p>
+    <audio id="audioPlayer" controls autoplay hidden></audio>
+  </div>
+
+  <script>
+    const audioPlayer = document.getElementById('audioPlayer');
+    const nowPlaying = document.getElementById('nowPlaying');
+
+    const moodSongs = {
+      happy: 'music/happy.mp3',
+      sad: 'music/sad.mp3',
+      angry: 'music/angry.mp3',
+      relaxed: 'music/relaxed.mp3',
+      energetic: 'music/energetic.mp3',
+    };
+
+    function playMusic(mood) {
+      const songPath = moodSongs[mood];
+      if (songPath) {
+        audioPlayer.src = songPath;
+        audioPlayer.hidden = false;
+        audioPlayer.play();
+        nowPlaying.innerText = `Now Playing: ${mood.charAt(0).toUpperCase() + mood.slice(1)} Mood 🎶`;
+      }
+    }
+  </script>
+</body>
+</html>

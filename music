@@ -1,5 +1,17 @@
-      happy: 'music/happy.mp3',
-      sad: 'music/sad.mp3',
-      angry: 'music/angry.mp3',
-      relaxed: 'music/relaxed.mp3',
-      energetic: 'music/energetic.mp3',
+const songs = [
+  { name: "Song 1", link: "https://open.spotify.com/track/{track_id_1}" },
+  { name: "Song 2", link: "https://open.spotify.com/track/{track_id_2}" },
+  { name: "Song 3", link: "https://open.spotify.com/track/{track_id_3}" }
+];
+
+const songListContainer = document.getElementById('songList');
+
+songs.forEach(song => {
+  const listItem = document.createElement('li');
+  const anchorTag = document.createElement('a');
+  anchorTag.href = song.link;
+  anchorTag.target = "_blank";
+  anchorTag.textContent = song.name;
+  listItem.appendChild(anchorTag);
+  songListContainer.appendChild(listItem);
+});

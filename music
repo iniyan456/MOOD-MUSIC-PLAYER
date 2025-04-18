@@ -1,0 +1,5 @@
+      happy: 'music/happy.mp3',
+      sad: 'music/sad.mp3',
+      angry: 'music/angry.mp3',
+      relaxed: 'music/relaxed.mp3',
+      energetic: 'music/energetic.mp3',
